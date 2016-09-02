@@ -1,6 +1,8 @@
 Revision history for Bio-ASN1-Entrezgene
 
 {{$NEXT}}
+
+1.71      2016-09-01 22:57:25-05:00 America/Chicago (TRIAL RELEASE)
   * Minor bump for impending BioPerl 1.7 release.
   * #2 : 'Unescaped left brace in regex is deprecated' with newer versions of perl
     fixed [fjossandon]
