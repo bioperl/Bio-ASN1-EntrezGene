@@ -2,6 +2,8 @@ Revision history for Bio-ASN1-Entrezgene
 
 {{$NEXT}}
   * Minor bump for impending BioPerl 1.7 release.
+  * #2 : 'Unescaped left brace in regex is deprecated' with newer versions of perl
+    fixed [fjossandon]
 
 1.70      2013-09-14 14:39:54 America/Chicago
   * Bio::ASN1::EntrezGene is now able to parse EntrezGene-set in which case
