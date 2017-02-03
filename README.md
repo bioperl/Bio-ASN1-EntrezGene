@@ -23,12 +23,10 @@ it under the same terms as Perl itself.
 INSTALLATION
 ------------
 
-Bio::ASN1::EntrezGene package can be installed & tested as follows:
+Bio::ASN1::EntrezGene package can be installed and tested as follows:
 
-    perl Makefile.PL
-    make
-    make test
-    make install
+    dzill test # or dzil test --all
+    dzil install
 
 DOCUMENTATION
 -------------
