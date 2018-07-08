@@ -239,7 +239,7 @@ sub next_seq
   {
     chomp;
     next unless /\S/;
-    my $tmp = (/^\s*Seq-entry ::= set ({.*)/si)? $1 : "{" . $_; # get rid of the 'Seq-entry ::= set ' at the beginning of Sequence record
+    my $tmp = (/^\s*Seq-entry ::= set (\{.*)/si)? $1 : "{" . $_; # get rid of the 'Seq-entry ::= set ' at the beginning of Sequence record
     return $self->parse($tmp, $compact, 1); # 1 species no resetting line number
   }
 }
