@@ -223,7 +223,7 @@ sub input_file
                 please see comment for the trimdata method. An option
                 of 2 is recommended and default
               The acceptable values for $trimopt include:
-                1 - trim as much as possibile
+                1 - trim as much as possible
                 2 (or 0, undef) - trim to an easy-to-use structure
                 3 - no trimming (in version 1.06, prior to version
                     1.06, 0 or undef means no trimming)
@@ -417,7 +417,7 @@ sub _parse
   Notes:      This function is useful to compact a data structure produced by
                 Bio::ASN1::Sequence::parse.
               The acceptable values for $trimopt include:
-                1 - trim as much as possibile
+                1 - trim as much as possible
                 2 (or 0, undef) - trim to an easy-to-use structure
                 3 - no trimming (in version 1.06, prior to version
                     1.06, 0 or undef means no trimming)
