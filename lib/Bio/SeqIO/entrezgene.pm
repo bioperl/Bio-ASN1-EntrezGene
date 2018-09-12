@@ -137,9 +137,6 @@ sub next_seq {
     #my @keys=keys %{$value}; obsolete
     $xval = $value->[0];
 
-	#return unless ($xval->{gene}->{desc} eq 'albumin');
-	#return new Bio::Seq (-id=>'Generif service record', -seq=>'')
-	#    unless ($xval->{'track-info'}{geneid}== 283);
     return Bio::Seq->new( -id => 'Generif service record', -seq => '' )
       if (
         ( $self->{_service_record} ne 'yes' )
@@ -414,9 +411,6 @@ sub _process_refseq {
             next;
         }
 
-        #if ((exists($product->{products})&&($product->{products}))) {
-        #	$self->_process_refseq($product->{products},$ns,$iter);
-        #}
         if (   ( exists( $product->{seqs}->{whole}->{gi} ) )
             && ( ref( $product->{seqs}->{whole}->{gi} ) eq 'ARRAY' ) )
         {
@@ -486,9 +480,6 @@ sub _process_refseq {
     undef @products;
     undef $products;
 
-    #my $ti2=new Benchmark;
-    # my $td= timediff($ti2, $ti1);
-    #        print "\tITER $iter:",timestr($td),"\n";
     return \@uncaptured, $pid, $seqcollection{seq}, $iter;
 }
 
@@ -549,7 +540,6 @@ sub _process_comments {
           unless ref($comm) eq 'HASH';
         my ( $desc, $nfeat, $add, @ann, @comm );
 
-# next unless (exists($comm->{comment}));#Should be more careful when calling _process_comment:To do
         my $heading = $comm->{heading} || 'description';
         if ( !exists( $comm->{comment} ) ) {
             if (   ( exists( $comm->{type} ) )
@@ -639,7 +629,7 @@ sub _process_comments {
                         if (defined $scorestr) {
                             my ( $scoresrc, $score ) = split( /:/, $scorestr );
                             $score =~ s/\D//g;
-                        } 
+                        }
                         my ( %tags, $tag );
                         unless ($l1) {
                             next;
@@ -758,9 +748,6 @@ sub _process_src {
         push @ann, $simann;
     }
 
-    #my $t1=new Benchmark;
-    #my $td= timediff($t1, $t0);
-    #print "\t\tSRC:",timestr($td),"\n";
     return $src, \@ann, $anchor;
 }
 
@@ -808,7 +795,6 @@ sub _process_locus {
         $start = $self->{_current}->{seqs}->{'int'}->{from};
         delete $self->{_current}->{seqs}->{'int'}->{from};
 
-      #unless ($start) {print $locus->{seqs}->{'int'}->{from},"\n",$locus,"\n";}
         $end = $self->{_current}->{seqs}->{'int'}->{to};
         delete $self->{_current}->{seqs}->{'int'}->{to};
         delete $self->{_current}->{seqs}->{'int'}->{strand};
@@ -973,16 +959,6 @@ sub _process_all_comments {
                     $product->{products} = $product->{comment};
                 }
 
-#unless (($product->{products})&&(exists($product->{comment}))) {
-#if (ref ($product->{comment}) eq 'ARRAY') {
-#	foreach my $pc (@{$product->{comment}}) {
-#		push @{$product->{products}},$pc->{products};
-#	}
-#}
-#else {
-#	$product->{products}=exists($product->{comments}->{products})?$product->{comments}->{products}:$product->{comment};
-#}
-#}
                 my @uncaptured =
                   $self->_process_refseq( $product->{products}, 'refseq' );
                 push @alluncaptured, @uncaptured;
@@ -1049,12 +1025,6 @@ sub _process_all_comments {
         push @alluncaptured, $uncapt;
     }
 
-    #if (exists($product->{source})) {
-    #    my ($uncapt,$ann,$anchor)=_process_src($product->{source});
-    #    foreach my $dbl (@$ann) {
-    #        $self->{_ann}->add_Annotation('dblink',$dbl);
-    #    }
-    #}
     return @alluncaptured;
 }
 
@@ -1192,18 +1162,11 @@ sub _backcomp_ll {
     my $ann    = shift;
     my $newann = Bio::Annotation::Collection->new();
 
-    #$newann->{_annotation}->{ALIAS_SYMBOL}=$ann->{_annotation}->{ALIAS_SYMBOL};
-    # $newann->{_annotation}->{CHR}=$ann->{_annotation}->{chromosome};
-    # $newann->{_annotation}->{MAP}=$ann->{_annotation}->{cyto};
     foreach my $tagmap ( keys %{ $ann->{_typemap}->{_type} } ) {
         next if ( grep( /$tagmap/, @main::egonly ) );
         $newann->{_annotation}->{$tagmap} = $ann->{_annotation}->{$tagmap};
     }
 
-#$newann->{_annotation}->{Reference}=$ann->{_annotation}->{Reference};
-#$newann->{_annotation}->{generif}=$ann->{_annotation}->{generif};
-#$newann->{_annotation}->{comment}=$ann->{_annotation}->{comment};
-# $newann->{_annotation}->{OFFICIAL_GENE_NAME}=$ann->{_annotation}->{'Official Full Name'};
     $newann->{_typemap}->{_type} = $ann->{_typemap}->{_type};
     foreach my $ftype ( keys %main::eg_to_ll ) {
         my $newkey = $main::eg_to_ll{$ftype};
@@ -1221,9 +1184,6 @@ sub _backcomp_ll {
         );
         $newann->add_Annotation($simann);
     }
-
-#        my $simann=Bio::Annotation::SimpleValue->new(-value=>$seq->desc,-tagname=>'comment');
-#        $newann->add_Annotation($simann);
 
     return $newann;
 }
