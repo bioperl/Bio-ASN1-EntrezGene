@@ -16,7 +16,7 @@ sub check_dependency {
 my ( $noindex, $noabseq, $nogene, $noseq, $noseqindex );
 
 BEGIN {
-    diag(
+    note(
 "\n\nTest indexers (Bio::ASN1::EntrezGene::Indexer, Bio::ASN1::Sequence::Indexer)\nIndexing and retrieval:\n"
     );
     check_dependency('Bio::ASN1::EntrezGene')          || $nogene++;
@@ -25,7 +25,7 @@ BEGIN {
     check_dependency('Bio::ASN1::Sequence')            || $noseq++;
     check_dependency('Bio::ASN1::Sequence::Indexer')   || $noseqindex++;
 }
-diag("\n\nFirst testing gene indexer:\n");
+note("\n\nFirst testing gene indexer:\n");
 SKIP: {
     if ( !$nogene ) {
         skip( "BioPerl not installed, skipping", 3 ) if $noabseq;
@@ -58,9 +58,9 @@ SKIP: {
 "\nThere's some problem with the installation of Bio::ASN1::EntrezGene!\nTry install again using:\n\tperl Makefile.PL\n\tmake\nQuitting now"
         );
     }
-    diag("\n\nNow testing sequence indexer:\n");
 }
 
+note("\n\nNow testing sequence indexer:\n");
 SKIP: {
     if ( !$noseq ) {
         skip( "BioPerl not installed, skipping", 3 ) if $noabseq;
