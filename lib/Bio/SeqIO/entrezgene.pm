@@ -1,12 +1,14 @@
-# BioPerl module for Bio::SeqIO::entrezgene
-#
-# You may distribute this module under the same terms as perl itself
-#
-# POD documentation - main docs before the code
+package Bio::SeqIO::entrezgene;
 
-=head1 NAME
+use utf8;
+use strict;
+use warnings;
 
-Bio::SeqIO::entrezgene - Entrez Gene ASN1 parser
+# ABSTRACT: Entrez Gene ASN1 parser
+# AUTHOR: Stefan Kirov <skirov@utk.edu>
+# OWNER: Stefan Kirov <skirov@utk.edu>
+# CONTRIBUTOR: Hilmar Lapp <hlapp@gmx.net>
+# LICENSE: Perl_5
 
 =head1 SYNOPSIS
 
@@ -69,56 +71,8 @@ Example code which looks for ontology terms:
     }
   }
 
-=head1 FEEDBACK
-
-=head2 Mailing Lists
-
-User feedback is an integral part of the evolution of this and other
-Bioperl modules. Send your comments and suggestions preferably to
-the Bioperl mailing list.  Your participation is much appreciated.
-
-  bioperl-l@bioperl.org                  - General discussion
-  http://bioperl.org/wiki/Mailing_lists  - About the mailing lists
-
-=head2 Support
-
-Please direct usage questions or support issues to the mailing list:
-
-I<bioperl-l@bioperl.org>
-
-rather than to the module maintainer directly. Many experienced and
-reponsive experts will be able look at the problem and quickly
-address it. Please include a thorough description of the problem
-with code and data examples if at all possible.
-
-=head2 Reporting Bugs
-
-Report bugs to the Bioperl bug tracking system to help us keep track
-of the bugs and their resolution. Bug reports can be submitted via
-the web:
-
-  https://github.com/bioperl/bioperl-live/issues
-
-=head1 AUTHOR - Stefan Kirov
-
-Email skirov at utk.edu
-
-=head1 CONTRIBUTORS
-
-Hilmar Lapp, hlapp at gmx.net
-
-=head1 APPENDIX
-
-This parser is based on Bio::ASN1::EntrezGene module.
-
-The rest of the documentation details each of the object methods.
-Internal methods are usually preceded with a _
-
 =cut
 
-package Bio::SeqIO::entrezgene;
-
-use strict;
 use Bio::ASN1::EntrezGene;
 use Bio::Seq;
 use Bio::Species;
