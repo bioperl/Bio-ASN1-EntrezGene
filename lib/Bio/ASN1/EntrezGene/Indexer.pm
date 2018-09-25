@@ -1,4 +1,5 @@
 package Bio::ASN1::EntrezGene::Indexer;
+
 use utf8;
 use strict;
 use warnings;
@@ -189,4 +190,3 @@ sub _file_handle {
 }
 
 1;
-

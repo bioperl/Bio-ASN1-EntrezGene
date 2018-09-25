@@ -1,4 +1,5 @@
 package Bio::ASN1::EntrezGene;
+
 use utf8;
 use strict;
 use warnings;
@@ -514,4 +515,3 @@ sub rawdata
 }
 
 1;
-
